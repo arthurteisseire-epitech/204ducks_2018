@@ -16,21 +16,20 @@ def integral(a, t):
     return 1 - a * exp(-t) - (4 - 3 * a) * exp(-2 * t) / 2 - (2 * a - 4) * exp(-4 * t) / 4
 
 
-def ducks_50():
-    pass
-
-
-def ducks_90():
-    pass
+def ducks_back(a, perc):
+    i = 0
+    while integral(a, i) < perc:
+        i += 0.01
+    return i, (i - int(i)) * 60
 
 
 def duck_t_min(a, t):
     return integral(args.a, t) * 100
 
 
-print("Average return time: %d"                         % 1)
-print("Standard deviation: %d"                          % 1)
-print("Time after which 50%% of the ducks are back: %d" % 1)
-print("Time after which 99%% of the ducks are back: %d" % 1)
-print("Percentage of ducks back after 1 minute: %.1f%%"     % duck_t_min(args.a, 1))
-print("Percentage of ducks back after 2 minutes: %.1f%%"    % duck_t_min(args.a, 2))
+print("Average return time: %d"                          % 1)
+print("Standard deviation: %d"                           % 1)
+print("Time after which 50%% of the ducks are back: %dm %02ds"  % ducks_back(args.a, 0.5))
+print("Time after which 99%% of the ducks are back: %dm %02ds"  % ducks_back(args.a, 0.99))
+print("Percentage of ducks back after 1 minute: %.1f%%"  % duck_t_min(args.a, 1))
+print("Percentage of ducks back after 2 minutes: %.1f%%" % duck_t_min(args.a, 2))
