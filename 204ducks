@@ -38,10 +38,10 @@ def std_deviation(a):
 
 
 def ducks_back(a, perc):
-    i = 0
-    while integral(a, i) < perc:
-        i += 0.01
-    return i, (i - int(i)) * 60
+    t = 0
+    while integral(a, t) < perc:
+        t += 0.01
+    return t, (t - int(t)) * 60
 
 
 def duck_t_min(a, t):
